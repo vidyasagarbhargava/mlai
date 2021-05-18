@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Machine Learning and AI</title>
+    <link>https://themlai.netlify.app</link>
+    <atom:link href="https://themlai.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Machine Learning and AI
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Tue, 18 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Nearest Neighbors Classifier</title>
+      <dc:creator>Vidyasagar Bhargava</dc:creator>
+      <link>https://themlai.netlify.app/posts/2021-05-18-nearest-neighbors-classifier</link>
+      <description>Birds of same feather flock together</description>
+      <guid>https://themlai.netlify.app/posts/2021-05-18-nearest-neighbors-classifier</guid>
+      <pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Let's Talk about Probability Distribution</title>
+      <dc:creator>Vidyasagar Bhargava</dc:creator>
+      <link>https://themlai.netlify.app/posts/2021-03-17-lets-talk-about-probability-distribution</link>
+      <description>A short description of the post.</description>
+      <guid>https://themlai.netlify.app/posts/2021-03-17-lets-talk-about-probability-distribution</guid>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Fun with Linear Regression</title>
+      <dc:creator>Vidyasagar Bhargava</dc:creator>
+      <link>https://themlai.netlify.app/posts/2021-03-15-fun-with-linear-regression</link>
+      <description>A short description of the post.</description>
+      <guid>https://themlai.netlify.app/posts/2021-03-15-fun-with-linear-regression</guid>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://themlai.netlify.app/posts/2021-03-15-fun-with-linear-regression/fun-with-linear-regression_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+  </channel>
+</rss>

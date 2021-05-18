@@ -1517,7 +1517,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li>Start with k value equal to the square root of the number of training examples.</li>
 <li>Using cross validation to determine the best k value.</li>
-<li>Weighted voting is one of interesting way to solve this problem. By giving higher weight to close neighbors.</li>
+<li>Weighted voting is one of interesting way to solve this problem. By giving higher weight to close neighbors.b 444</li>
 </ul>
 <h3 id="k-nn-from-scratch">k-NN from scratch</h3>
 <ul>
@@ -1588,7 +1588,130 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;custom KNN classification accuracy&quot;</span>, accuracy(y_test, predictions))</span></code></pre></div>
 <pre><code>custom KNN classification accuracy 1.0</code></pre>
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h3 id="k-nn-classifier">k-NN Classifier</h3>
+<h4 id="defining-the-dataset-for-k-nn">Defining the dataset for k-NN</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First Feature</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>weather<span class="op">=</span>[<span class="st">&#39;Sunny&#39;</span>,<span class="st">&#39;Sunny&#39;</span>,<span class="st">&#39;Overcast&#39;</span>,<span class="st">&#39;Rainy&#39;</span>,<span class="st">&#39;Rainy&#39;</span>,<span class="st">&#39;Rainy&#39;</span>,<span class="st">&#39;Overcast&#39;</span>,<span class="st">&#39;Sunny&#39;</span>,<span class="st">&#39;Sunny&#39;</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;Rainy&#39;</span>,<span class="st">&#39;Sunny&#39;</span>,<span class="st">&#39;Overcast&#39;</span>,<span class="st">&#39;Overcast&#39;</span>,<span class="st">&#39;Rainy&#39;</span>]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Second Feature</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>temp<span class="op">=</span>[<span class="st">&#39;Hot&#39;</span>,<span class="st">&#39;Hot&#39;</span>,<span class="st">&#39;Hot&#39;</span>,<span class="st">&#39;Mild&#39;</span>,<span class="st">&#39;Cool&#39;</span>,<span class="st">&#39;Cool&#39;</span>,<span class="st">&#39;Cool&#39;</span>,<span class="st">&#39;Mild&#39;</span>,<span class="st">&#39;Cool&#39;</span>,<span class="st">&#39;Mild&#39;</span>,<span class="st">&#39;Mild&#39;</span>,<span class="st">&#39;Mild&#39;</span>,<span class="st">&#39;Hot&#39;</span>,<span class="st">&#39;Mild&#39;</span>]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Label or target varible</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>play<span class="op">=</span>[<span class="st">&#39;No&#39;</span>,<span class="st">&#39;No&#39;</span>,<span class="st">&#39;Yes&#39;</span>,<span class="st">&#39;Yes&#39;</span>,<span class="st">&#39;Yes&#39;</span>,<span class="st">&#39;No&#39;</span>,<span class="st">&#39;Yes&#39;</span>,<span class="st">&#39;No&#39;</span>,<span class="st">&#39;Yes&#39;</span>,<span class="st">&#39;Yes&#39;</span>,<span class="st">&#39;Yes&#39;</span>,<span class="st">&#39;Yes&#39;</span>,<span class="st">&#39;Yes&#39;</span>,<span class="st">&#39;No&#39;</span>]</span></code></pre></div>
+</div>
+<p>We have two features weather and temperature and one label play.</p>
+<h4 id="encoding-data-columns">Encoding data columns</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> preprocessing</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#creating labelEncoder</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>le <span class="op">=</span> preprocessing.LabelEncoder()</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting string labels into numbers.</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>weather_encoded<span class="op">=</span>le.fit_transform(weather)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(weather_encoded)</span></code></pre></div>
+<pre><code>[2 2 0 1 1 1 0 2 2 1 2 0 0 1]</code></pre>
+</div>
+<p>Similarly, you can encode temperature and label into numeric columns.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># converting string labels into numbers</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>temp_encoded<span class="op">=</span>le.fit_transform(temp)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>label<span class="op">=</span>le.fit_transform(play)</span></code></pre></div>
+</div>
+<h4 id="combining-features">Combining Features</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#combinig weather and temp into single listof tuples</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>features<span class="op">=</span><span class="bu">list</span>(<span class="bu">zip</span>(weather_encoded,temp_encoded))</span></code></pre></div>
+</div>
+<h4 id="generating-model">Generating Model</h4>
+<p>Let’s build k-NN classifier model</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model using the training sets</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>model.fit(features,label)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Predict Output</span></span></code></pre></div>
+<pre><code>KNeighborsClassifier(algorithm=&#39;auto&#39;, leaf_size=30, metric=&#39;minkowski&#39;,
+                     metric_params=None, n_jobs=None, n_neighbors=3, p=2,
+                     weights=&#39;uniform&#39;)</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>predicted<span class="op">=</span> model.predict([[<span class="dv">0</span>,<span class="dv">2</span>]]) <span class="co"># 0:Overcast, 2:Mild</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(predicted)</span></code></pre></div>
+<pre><code>[1]</code></pre>
+</div>
+<h3 id="k-nn-regressor">k-NN regressor</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_boston</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>X,y <span class="op">=</span> load_boston(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> KNeighborsRegressor()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>mod.fit(X,y)</span></code></pre></div>
+<pre><code>KNeighborsRegressor(algorithm=&#39;auto&#39;, leaf_size=30, metric=&#39;minkowski&#39;,
+                    metric_params=None, n_jobs=None, n_neighbors=5, p=2,
+                    weights=&#39;uniform&#39;)</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mod.predict(X)</span></code></pre></div>
+<pre><code>array([21.78, 22.9 , 25.36, 26.06, 27.1 , 27.1 , 20.88, 19.1 , 18.4 ,
+       19.48, 19.28, 22.  , 24.34, 20.52, 24.66, 21.3 , 30.48, 20.4 ,
+       15.7 , 23.54, 16.82, 17.64, 18.3 , 17.08, 16.66, 15.1 , 16.78,
+       14.94, 19.94, 18.34, 14.1 , 16.82, 15.12, 14.1 , 15.12, 26.92,
+       22.14, 27.4 , 28.44, 31.88, 31.88, 25.36, 25.36, 24.22, 20.68,
+       20.44, 20.44, 18.1 , 18.1 , 24.  , 21.54, 24.  , 27.16, 27.16,
+       25.7 , 39.82, 27.08, 38.28, 24.8 , 25.64, 21.78, 33.6 , 21.78,
+       24.06, 31.74, 25.3 , 26.98, 22.18, 20.42, 20.42, 27.76, 29.5 ,
+       27.76, 27.76, 22.92, 21.64, 25.82, 21.64, 21.38, 22.02, 24.8 ,
+       21.88, 25.22, 25.64, 25.98, 25.98, 23.28, 25.98, 24.02, 25.58,
+       25.58, 25.06, 26.34, 26.04, 30.1 , 24.84, 23.62, 24.32, 28.52,
+       24.96, 22.1 , 22.2 , 15.34, 19.74, 19.74, 19.66, 19.56, 21.34,
+       19.66, 19.56, 22.08, 20.1 , 19.6 , 17.54, 20.1 , 17.7 , 20.2 ,
+       20.1 , 20.66, 19.8 , 22.76, 20.6 , 19.66, 18.52, 19.66, 20.6 ,
+       18.52, 16.62, 18.04, 16.88, 18.4 , 18.4 , 18.78, 18.56, 20.24,
+       17.44, 17.8 , 18.4 , 15.88, 17.06, 15.24, 14.76, 15.62, 15.62,
+       15.62, 18.26, 18.26, 15.62, 17.82, 17.44, 37.22, 20.66, 19.28,
+       20.24, 20.24, 15.34, 15.34, 37.78, 25.52, 32.08, 20.66, 42.56,
+       44.54, 44.54, 30.34, 20.24, 37.22, 19.52, 19.98, 20.24, 19.98,
+       18.74, 21.9 , 24.4 , 23.74, 25.82, 22.34, 24.2 , 23.84, 38.56,
+       33.24, 38.56, 33.24, 31.6 , 33.24, 38.56, 37.84, 32.72, 33.14,
+       32.72, 33.14, 32.72, 33.72, 31.8 , 31.8 , 34.9 , 26.78, 25.24,
+       26.78, 29.38, 29.5 , 25.2 , 25.3 , 41.28, 41.28, 23.76, 23.78,
+       20.74, 22.9 , 21.1 , 21.1 , 21.1 , 23.9 , 28.84, 22.6 , 27.28,
+       22.96, 21.9 , 21.1 , 23.38, 25.42, 17.32, 31.8 , 24.46, 37.82,
+       36.46, 36.14, 35.96, 29.5 , 29.44, 34.  , 41.28, 38.28, 38.16,
+       28.12, 29.3 , 34.12, 34.12, 21.44, 21.92, 21.44, 21.4 , 22.1 ,
+       21.74, 20.  , 19.68, 22.16, 20.  , 21.38, 31.22, 31.22, 26.28,
+       29.56, 31.22, 27.08, 24.86, 38.28, 42.44, 38.9 , 36.48, 38.82,
+       41.88, 41.88, 37.9 , 41.88, 34.6 , 38.82, 36.16, 32.42, 31.74,
+       32.58, 28.82, 31.74, 26.88, 31.96, 31.96, 31.96, 31.96, 31.96,
+       30.58, 31.74, 32.58, 36.62, 42.8 , 24.84, 21.88, 38.64, 21.88,
+       24.44, 22.62, 34.9 , 34.9 , 31.88, 24.54, 23.28, 24.44, 23.22,
+       22.94, 25.28, 29.12, 25.42, 25.78, 28.02, 30.58, 31.22, 27.02,
+       31.96, 27.02, 23.72, 21.6 , 29.  , 21.32, 21.02, 20.94, 21.44,
+       21.6 , 18.54, 19.52, 20.5 , 21.3 , 23.32, 23.76, 23.32, 22.9 ,
+       22.06, 23.76, 26.14, 22.06, 19.7 , 21.22, 19.92, 21.86, 22.98,
+       23.6 , 21.16, 20.78, 25.74, 24.3 , 20.72, 22.64, 24.32, 24.44,
+       19.8 , 29.36, 26.58, 19.  , 18.84, 26.48, 33.32, 25.78, 25.78,
+       28.  , 30.46, 42.8 , 20.96, 24.8 , 15.88, 19.06, 20.94, 21.42,
+       33.8 , 25.6 , 30.94, 25.6 , 27.22, 27.22, 16.98, 14.58, 39.16,
+       39.16, 26.46, 36.6 , 27.22, 11.36, 10.54, 10.82, 12.36, 12.5 ,
+        9.6 , 10.22,  6.86, 10.26, 11.62, 11.62, 14.16, 11.  ,  8.94,
+        9.74, 13.18, 12.5 , 13.52, 21.66, 11.88, 15.58, 11.74, 13.54,
+       13.98, 12.46,  8.5 , 14.82,  9.54, 11.14, 15.88, 10.5 , 14.28,
+        6.86, 13.18, 18.56, 14.52, 17.62, 10.34, 12.74, 11.88, 17.18,
+       10.92, 11.88, 11.2 , 14.58, 11.96, 10.44, 16.98, 16.98, 14.16,
+       13.58, 12.94, 11.74, 12.56, 10.26, 13.52, 11.58, 14.  , 12.6 ,
+       13.52, 13.3 , 12.9 , 12.16, 12.1 , 10.56, 12.12, 11.96, 10.6 ,
+       14.56, 13.84, 13.34, 13.44, 12.44, 16.98, 13.34, 14.48, 16.06,
+       13.58, 15.54, 17.04, 16.62, 12.54, 12.2 , 13.58, 12.94, 14.84,
+       20.24, 14.34, 19.82, 20.24, 20.38, 22.28, 17.56, 12.74, 18.56,
+       23.7 , 21.26, 20.24, 18.6 , 22.72, 23.28, 15.54, 16.06, 14.18,
+       14.96, 15.88, 16.36, 22.28, 22.72, 23.44, 20.86, 22.8 , 21.34,
+       21.42, 21.34, 17.04, 11.54, 12.28, 14.86, 18.3 , 22.08, 21.82,
+       22.02, 18.7 , 18.7 , 20.64, 18.7 , 19.96, 21.18, 23.12, 20.88,
+       21.9 , 21.42])</code></pre>
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

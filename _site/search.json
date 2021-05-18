@@ -6,14 +6,14 @@
       "description": "Some additional details about the blog",
       "author": [],
       "contents": "\nHi, Welcome to my THEMLAI blog. My name is Vidyasagar Bhargava. I am a Data Science Professional. I like to write share about topics related to Machine Learning, Deep Learning and Data Science.\n\n\n\n",
-      "last_modified": "2021-05-19T01:35:41+05:30"
+      "last_modified": "2021-05-19T02:22:49+05:30"
     },
     {
       "path": "index.html",
       "title": "Machine Learning and AI",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-05-19T01:35:42+05:30"
+      "last_modified": "2021-05-19T02:22:50+05:30"
     }
   ],
   "collections": ["posts/posts.json"]

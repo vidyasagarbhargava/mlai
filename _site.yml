@@ -2,6 +2,7 @@ name: "mydistillblog"
 title: "Machine Learning and AI"
 description: |
   Machine Learning and AI
+base_url: https://themlai.netlify.app
 output_dir: "_site"
 navbar:
   right:

@@ -53,7 +53,7 @@ In Practice choosing k depends on the difficulty of the concept to be learned an
 
 * Start with k value equal to the square root of the number of training examples.
 * Using cross validation to determine the best k value.
-* Weighted voting is one of interesting way to solve this problem. By giving higher weight to close neighbors.
+* Weighted voting is one of interesting way to solve this problem. By giving higher weight to close neighbors.b   444
 
 
 

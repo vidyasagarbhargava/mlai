@@ -1,0 +1,77 @@
+---
+title: "Fun with Linear Regression"
+description: |
+  A short description of the post.
+author:
+  - name: Vidyasagar Bhargava
+    url: https://example.com/norajones
+date: 03-15-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+**Linear Regression :-**  
+1. How it works and Building from scratch?  
+2. What are assumptions?  
+3. How to interpret model output?  
+4. How to evaluate model performance?  
+5. Other topics  
+
+
+## How it works?  
+importing key libraries   
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+importing dataset  
+```{python}
+df = pd.read_csv("https://raw.githubusercontent.com/mohit-baliyan/References/master/salary_data.csv")
+df.head()
+```
+
+
+
+```{python}
+X = df.iloc[:,0]
+Y = df.iloc[:,1]
+plt.scatter(X, Y)
+plt.show()
+```
+building class 
+```{python}
+class LinearHypothesis():
+    def __init__(self):
+        self.w = np.random.randn()
+        self.b = np.random.randn()
+    
+    def __call__(self, X):
+        pred = self.w*X + self.b
+        return pred
+        
+    def update_params(self,new_w, new_b):
+        self.new_w = w
+        self.new_b = b
+```
+
+Output 
+```{python}
+H = LinearHypothesis()
+y_hat = H(X)
+print('Input :', X, '\n')
+print('Weight :', H.w, 'B :', H.b, '\n')
+print('prediction :', y_hat, '\n')
+```
+Gradient descent 
+
+

@@ -1,0 +1,33 @@
+---
+title: "Let's Talk about Probability Distribution"
+description: |
+  A short description of the post.
+author:
+  - name: Vidyasagar Bhargava
+    url: https://vidyasagar.rbind.io
+date: 03-17-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+Ok so you have already heard of term probability Distribution but it always confuses you then you are at right place. 
+
+
+```{python}
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+```
+```{python}
+data_url = 'https://raw.githubusercontent.com/chiphuyen/just-pandas-things/master/data/interviews.csv'
+df = pd.read_csv(data_url)
+df.head()
+```
+```{python}
+df.groupby(['Company']).size().reset_index(name='interviews').sort_values(['interviews'], ascending=False).head(10)
+```
+

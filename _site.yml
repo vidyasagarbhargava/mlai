@@ -1,0 +1,13 @@
+name: "mydistillblog"
+title: "Machine Learning and AI"
+description: |
+  Machine Learning and AI
+output_dir: "_site"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - 
+output: distill::distill_article

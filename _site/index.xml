@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:distill="https://distill.pub/journal/" version="2.0">
   <channel>
     <title>Machine Learning and AI</title>
     <link>https://themlai.netlify.app</link>
@@ -13,6 +13,8 @@
       <dc:creator>Vidyasagar Bhargava</dc:creator>
       <link>https://themlai.netlify.app/posts/2021-05-18-nearest-neighbors-classifier</link>
       <description>Birds of same feather flock together</description>
+      <category>Machine Learning</category>
+      <category>Python</category>
       <guid>https://themlai.netlify.app/posts/2021-05-18-nearest-neighbors-classifier</guid>
       <pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate>
     </item>

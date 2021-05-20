@@ -5,6 +5,7 @@ description: |
 base_url: https://themlai.netlify.app
 output_dir: "_site"
 navbar:
+  title: "ML AI Blog"
   right:
     - text: "Home"
       href: index.html
@@ -16,4 +17,11 @@ navbar:
       href: https://www.linkedin.com/in/vidyasagarbhargava
     - icon: fa fa-twitter
       href: https://twitter.com/vsbd
+collections:
+  posts:
+    creative_commons: CC BY
+    disqus: themlai
+    share: [twitter, linkedin]
 output: distill::distill_article
+rss:
+  full_content: TRUE

@@ -6,9 +6,13 @@ author:
   - name: Vidyasagar Bhargava
     url: 
 date: 05-18-2021
+categories:
+  - Machine Learning
+  - Python
 output:
   distill::distill_article:
     self_contained: false
+    toc: true
 ---
 
 # Introduction 

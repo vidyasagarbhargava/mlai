@@ -5,14 +5,14 @@
       "title": "About this blog",
       "author": [],
       "contents": "\nHi, Welcome to my ML AI blog. My name is Vidyasagar Bhargava. I am a Data Science Professional. I like to write share about topics related to Machine Learning, Deep Learning and Data Science.\n\n\n\n",
-      "last_modified": "2021-05-20T16:36:00+05:30"
+      "last_modified": "2021-05-20T18:43:05+05:30"
     },
     {
       "path": "index.html",
       "title": "Machine Learning and AI",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-05-20T16:36:01+05:30"
+      "last_modified": "2021-05-20T18:43:05+05:30"
     }
   ],
   "collections": ["posts/posts.json"]

@@ -18,22 +18,5 @@
       <guid>https://themlai.netlify.app/posts/2021-05-18-nearest-neighbors-classifier</guid>
       <pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate>
     </item>
-    <item>
-      <title>Let's Talk about Probability Distribution</title>
-      <dc:creator>Vidyasagar Bhargava</dc:creator>
-      <link>https://themlai.netlify.app/posts/2021-03-17-lets-talk-about-probability-distribution</link>
-      <description>A short description of the post.</description>
-      <guid>https://themlai.netlify.app/posts/2021-03-17-lets-talk-about-probability-distribution</guid>
-      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Fun with Linear Regression</title>
-      <dc:creator>Vidyasagar Bhargava</dc:creator>
-      <link>https://themlai.netlify.app/posts/2021-03-15-fun-with-linear-regression</link>
-      <description>A short description of the post.</description>
-      <guid>https://themlai.netlify.app/posts/2021-03-15-fun-with-linear-regression</guid>
-      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://themlai.netlify.app/posts/2021-03-15-fun-with-linear-regression/fun-with-linear-regression_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
   </channel>
 </rss>

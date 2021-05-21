@@ -1,5 +1,27 @@
 [
   {
+    "path": "posts/2021-05-20-understanding-linear-regression/",
+    "title": "Understanding Linear Regression",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Vidyasagar Bhargava",
+        "url": {}
+      }
+    ],
+    "date": "2021-05-20",
+    "categories": [
+      "Machine Learning",
+      "Python"
+    ],
+    "contents": "\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef make_binary_data(m=50): \n    X = np.random.randn(m) #sample from a normal distribution\n    Y = X > 0.2    # return binary vector with true where X above some threshold and false if below\n    return X, Y #returns X (the input) and Y (labels)\n\ndef plot_data(X, Y):\n    plt.figure()\n    plt.scatter(X, Y, c='r', marker='x')\n    plt.xlabel('X')\n    plt.ylabel('Y')\n    plt.grid()\n    plt.show()\n    \nX, Y = make_binary_data()\nplot_data(X, Y)\n\n\n\n\n\n",
+    "preview": "posts/2021-05-20-understanding-linear-regression/understanding-linear-regression_files/figure-html5/unnamed-chunk-1-1.png",
+    "last_modified": "2021-05-20T21:42:00+05:30",
+    "input_file": {},
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2021-05-18-nearest-neighbors-classifier/",
     "title": "Nearest Neighbors Classifier",
     "description": "Birds of same feather flock together",

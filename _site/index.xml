@@ -7,7 +7,18 @@
     <description>Machine Learning and AI
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 18 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Understanding Linear Regression</title>
+      <dc:creator>Vidyasagar Bhargava</dc:creator>
+      <link>https://themlai.netlify.app/posts/2021-05-20-understanding-linear-regression</link>
+      <description>A short description of the post.</description>
+      <category>Machine Learning</category>
+      <category>Python</category>
+      <guid>https://themlai.netlify.app/posts/2021-05-20-understanding-linear-regression</guid>
+      <pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://themlai.netlify.app/posts/2021-05-20-understanding-linear-regression/understanding-linear-regression_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Nearest Neighbors Classifier</title>
       <dc:creator>Vidyasagar Bhargava</dc:creator>
